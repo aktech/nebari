@@ -167,6 +167,10 @@ jobs:
         run: |
           pytest tests/tests_deployment/ -v -s
 
+      - name: Debugging with tmate
+        if: always()
+        uses: mxschmitt/action-tmate@v3.17
+
       - name: JupyterHub Notebook Tests
         timeout-minutes: 2
         # run jhub-client after pytest since jhubctl can cleanup
